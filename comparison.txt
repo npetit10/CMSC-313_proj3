@@ -1,0 +1,8 @@
+
+The -O0 optimization level produces assembly that is basically an unoptimized translation of the C code. This level prioritizes performance. This results in a lot more mov instructions between data from the registers and memory addresses. While this level creates a lot of overhead since it accesses slower memory, it ensures every line of C code maps directly to a set of assembly code.
+
+At the -O1 level, the compiler introduces basic efficiency by optimizing register allocation and reducing stack traffic. Loops and file pointers are moved from the stack into general-purpose registers, which speeds up the execution of the loops. The compiler also removes any useless code at this level but still maintains a similar structure to the c code.
+
+The -O3 level represents the most aggressive optimization, where the compiler prioritizes execution speed even at the cost of increased binary size. This code is the most complex and difficult to read at times. The compiler may aggressively reorder instructions and inline functions to keep the CPU's execution pipeline full, ensuring that the hex dump utility operates at the maximum theoretical speed of the hardware.
+
+Also you'll notice that -O0 has the smallest file size while -O3 has the largest.
